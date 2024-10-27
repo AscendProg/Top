@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cosas que Amo de Ti</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, #ff6b6b, #f09433);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            max-width: 50vh;
+            width: 90%;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5vh;
+            margin-bottom: 7vh;
+            color: white;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        .items-container {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-start;
+            height: 500px;
+            margin-bottom: 20px;
+        }
+
+        .item {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            margin: 3px 0;
+            padding: 1.75vh 1vh 1.75vh 1.75vh;
+            border-radius: 8px;
+            text-align: start;
+            font-size: 13px;
+        }
+
+        .phrase {
+            display: none;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        #gift1:checked~.items-container .phrase10 {
+            display: inline-block;
+        }
+
+        #gift2:checked~.items-container .phrase10,
+        #gift2:checked~.items-container .phrase9 {
+            display: inline-block;
+        }
+
+        #gift3:checked~.items-container .phrase10,
+        #gift3:checked~.items-container .phrase9,
+        #gift3:checked~.items-container .phrase8 {
+            display: inline-block;
+        }
+
+        #gift4:checked~.items-container .phrase10,
+        #gift4:checked~.items-container .phrase9,
+        #gift4:checked~.items-container .phrase8,
+        #gift4:checked~.items-container .phrase7 {
+            display: inline-block;
+        }
+
+        #gift5:checked~.items-container .phrase10,
+        #gift5:checked~.items-container .phrase9,
+        #gift5:checked~.items-container .phrase8,
+        #gift5:checked~.items-container .phrase7,
+        #gift5:checked~.items-container .phrase6 {
+            display: inline-block;
+        }
+
+        #gift6:checked~.items-container .phrase10,
+        #gift6:checked~.items-container .phrase9,
+        #gift6:checked~.items-container .phrase8,
+        #gift6:checked~.items-container .phrase7,
+        #gift6:checked~.items-container .phrase6,
+        #gift6:checked~.items-container .phrase5 {
+            display: inline-block;
+        }
+
+        #gift7:checked~.items-container .phrase10,
+        #gift7:checked~.items-container .phrase9,
+        #gift7:checked~.items-container .phrase8,
+        #gift7:checked~.items-container .phrase7,
+        #gift7:checked~.items-container .phrase6,
+        #gift7:checked~.items-container .phrase5,
+        #gift7:checked~.items-container .phrase4 {
+            display: inline-block;
+        }
+
+        #gift8:checked~.items-container .phrase10,
+        #gift8:checked~.items-container .phrase9,
+        #gift8:checked~.items-container .phrase8,
+        #gift8:checked~.items-container .phrase7,
+        #gift8:checked~.items-container .phrase6,
+        #gift8:checked~.items-container .phrase5,
+        #gift8:checked~.items-container .phrase4,
+        #gift8:checked~.items-container .phrase3 {
+            display: inline-block;
+        }
+
+        #gift9:checked~.items-container .phrase10,
+        #gift9:checked~.items-container .phrase9,
+        #gift9:checked~.items-container .phrase8,
+        #gift9:checked~.items-container .phrase7,
+        #gift9:checked~.items-container .phrase6,
+        #gift9:checked~.items-container .phrase5,
+        #gift9:checked~.items-container .phrase4,
+        #gift9:checked~.items-container .phrase3,
+        #gift9:checked~.items-container .phrase2 {
+            display: inline-block;
+        }
+
+        #gift10:checked~.items-container .phrase10,
+        #gift10:checked~.items-container .phrase9,
+        #gift10:checked~.items-container .phrase8,
+        #gift10:checked~.items-container .phrase7,
+        #gift10:checked~.items-container .phrase6,
+        #gift10:checked~.items-container .phrase5,
+        #gift10:checked~.items-container .phrase4,
+        #gift10:checked~.items-container .phrase3,
+        #gift10:checked~.items-container .phrase2,
+        #gift10:checked~.items-container .phrase1 {
+            display: inline-block;
+        }
+
+        /* Botones de transición visibles según el estado de los radio buttons */
+        #gift1:checked~.button-container label[for="gift2"],
+        #gift2:checked~.button-container label[for="gift3"],
+        #gift3:checked~.button-container label[for="gift4"],
+        #gift4:checked~.button-container label[for="gift5"],
+        #gift5:checked~.button-container label[for="gift6"],
+        #gift6:checked~.button-container label[for="gift7"],
+        #gift7:checked~.button-container label[for="gift8"],
+        #gift8:checked~.button-container label[for="gift9"],
+        #gift9:checked~.button-container label[for="gift10"] {
+            display: inline-block;
+        }
+
+        .button-container {
+            position: relative;
+            bottom: 0;
+        }
+
+        label {
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: none;
+            margin-top: 10px;
+        }
+
+        label:hover {
+            background-color: #f09433;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #ff6b6b, 0 0 20px #f09433;
+            }
+
+            100% {
+                text-shadow: 0 0 20px #ff6b6b, 0 0 30px #f09433;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>TOP 10 cosas que amo de ti</h1>
+
+        <input type="radio" id="gift1" name="gift" checked>
+        <input type="radio" id="gift2" name="gift">
+        <input type="radio" id="gift3" name="gift">
+        <input type="radio" id="gift4" name="gift">
+        <input type="radio" id="gift5" name="gift">
+        <input type="radio" id="gift6" name="gift">
+        <input type="radio" id="gift7" name="gift">
+        <input type="radio" id="gift8" name="gift">
+        <input type="radio" id="gift9" name="gift">
+        <input type="radio" id="gift10" name="gift">
+
+        <div class="items-container">
+            <div class="item">10. <span class="phrase phrase10">Lo increíble que eres en todo lo que haces</span></div>
+            <div class="item">9. <span class="phrase phrase9">Siempre tienes la razón, aunque no la tengas ❤️</span></div>
+            <div class="item">8. <span class="phrase phrase8">Cómo siempre estás ahí para mí</span></div>
+            <div class="item">7. <span class="phrase phrase7">La cantidad de memes que me mandas 🥰</span></div>
+            <div class="item">6. <span class="phrase phrase6">Tu generosidad con los demás</span></div>
+            <div class="item">5. <span class="phrase phrase5">Hasta lo aburrido lo haces sonar interesante 😁</span></div>
+            <div class="item">4. <span class="phrase phrase4">Lo fuerte y resiliente que eres</span></div>
+            <div class="item">3. <span class="phrase phrase3">Cuando dices "5 minutos" y tardas 30 🥵 </span></div>
+            <div class="item">2. <span class="phrase phrase2">La manera en que me haces sentir amado</span></div>
+            <div class="item">1. <span class="phrase phrase1">Tu facilidad para hacerme reír ❤️</span></div>
+        </div>
+
+        <div class="button-container">
+            <label for="gift2">Ver siguiente</label>
+            <label for="gift3">Ver siguiente</label>
+            <label for="gift4">Ver siguiente</label>
+            <label for="gift5">Ver siguiente</label>
+            <label for="gift6">Ver siguiente</label>
+            <label for="gift7">Ver siguiente</label>
+            <label for="gift8">Ver siguiente</label>
+            <label for="gift9">Ver siguiente</label>
+            <label for="gift10">Ver siguiente</label>
+        </div>
+    </div>
+
+</body>
+
+</html>
